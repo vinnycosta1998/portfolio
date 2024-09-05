@@ -1,4 +1,5 @@
 import { Avatar } from "@/components/Avatar";
+import { ExperienceCard } from "@/components/Experiencecard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TechCard } from "@/components/TechCard";
 import { projects } from "@/repositories/projects";
@@ -33,6 +34,15 @@ export default function Home() {
         <p className="text-white">
           Apaixonado por tecnologia, tenho como principal objetivo solucionar problemas atraves de programacao e gerar impacto na vida das pessoas.
         </p>
+      </section>
+
+      <section className="w-[40rem] mt-12">
+        <h1 className="font-bold text-2xl text-yellow my-2">Experiencia</h1>
+        <ExperienceCard
+            load="managment Control Intern"
+            period="03/04/2023 01/11/2023"
+            description="Estagiario COntrole de Gestao"
+        />
       </section>
 
       <section className="w-[40rem] mt-12">
