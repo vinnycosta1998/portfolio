@@ -7,10 +7,10 @@ interface ProjectCardProps{
 
 export function ProjectCard({ id, title, description, techsUtilized } : ProjectCardProps){
     return(
-        <div>
-            <header>{title}</header>
-            <p>{description}</p>
-            <span>{techsUtilized}</span>
+        <div className="w-full h-16 bg-yellow rounded-lg flex flex-col justify-center">
+            <h1 className="text-xl text-blue_twitter">{title}</h1>
+            <span className=" text-white">{description}</span>
+            <span className="text-purple">{techsUtilized}</span>
         </div>
     )
 }
