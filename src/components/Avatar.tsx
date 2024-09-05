@@ -7,9 +7,9 @@ export function Avatar(){
             alt="Imagem de perfil"
             quality={100}
             priority
-            width={400}
-            height={400}
-            
+            width={300}
+            height={300}
+            className="rounded-[50%]"
         />
     )
 }
