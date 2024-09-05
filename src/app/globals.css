@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  background-color: #170B2A;
+}
+
