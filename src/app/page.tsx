@@ -1,5 +1,7 @@
 import { Avatar } from "@/components/Avatar";
+import { ProjectCard } from "@/components/ProjectCard";
 import { TechCard } from "@/components/TechCard";
+import { projects } from "@/repositories/projects";
 import { techs } from "@/repositories/techs";
 
 import { Great_Vibes, Poppins } from "next/font/google"
@@ -45,6 +47,27 @@ export default function Home() {
                     title={tech.title}
                     logo={tech.logo}
                     key={tech.id}
+                  />
+                )
+              })
+            }
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-2xl mt-12">
+        <h1 className="font-bold text-2xl text-pink">Meus projetos</h1>
+        <div>
+          <div>
+            {
+              projects.map((project) => {
+                return(
+                  <ProjectCard
+                    id={project.id}
+                    title={project.title}
+                    description={project.description}
+                    techsUtilized={project.techsUtilized}
+                    key={project.id}
                   />
                 )
               })
