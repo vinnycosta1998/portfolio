@@ -1,4 +1,6 @@
 import { Avatar } from "@/components/Avatar";
+import { TechCard } from "@/components/TechCard";
+import { techs } from "@/repositories/techs";
 
 import { Great_Vibes, Poppins } from "next/font/google"
 
@@ -32,7 +34,23 @@ export default function Home() {
       </section>
 
       <section className="max-w-2xl mt-12">
-        <h1 className="font-bold text-2xl text-yellow">Tecnologias</h1>
+        <h1 className="font-bold text-2xl text-pink">Tecnologias</h1>
+        <div>
+          <div className="grid grid-cols-4 gap-12">
+            {
+              techs.map((tech) => {
+                return(
+                  <TechCard
+                    id={tech.id}
+                    title={tech.title}
+                    logo={tech.logo}
+                    key={tech.id}
+                  />
+                )
+              })
+            }
+          </div>
+        </div>
       </section>
     </div>
   );
