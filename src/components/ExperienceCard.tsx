@@ -7,12 +7,12 @@ interface ExperienceCardProps{
 export function ExperienceCard({load, period, description} : ExperienceCardProps){
     return(
         <div className="w-full h-12 bg-transparent backdrop-blur-xl">
-            <header>
-                <h1>{load}</h1>
-                <span>{period}</span>
+            <header className="flex justify-between">
+                <h1 className="text-pink">{load}</h1>
+                <span className="text-blue_twitter">{period}</span>
             </header>
             <main>
-                {description}
+                <span className="text-white">{description}</span>
             </main>
         </div>
     )
