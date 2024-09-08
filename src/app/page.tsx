@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/react-in-jsx-scope */
 "use client"
 
 import { useRef } from "react";
@@ -31,10 +33,9 @@ const formSchema = z.object({
   email: z.string()
 })
  
-export type FormSchemaData = z.infer<typeof emailSchema>
+export type FormSchemaData = z.infer<typeof formSchema>
 
 export default function Home() {
-  const scrollRef = useRef(null)
   const meRef = useRef<HTMLDivElement>(null)
   const experienceRef = useRef<HTMLDivElement>(null)
   const projectRef = useRef<HTMLDivElement>(null)
@@ -56,7 +57,7 @@ export default function Home() {
         projectRef.current?.scrollIntoView({ behavior: 'smooth' })
         break
       case 4:
-        contactRef.current?.scroollIntoView({ behavior: "smooth" })
+        contactRef.current?.scrollIntoView({ behavior: "smooth" })
     }
   }
 
