@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+
 interface ExperienceCardProps{
     load: string
     period: string
@@ -6,7 +8,7 @@ interface ExperienceCardProps{
 
 export function ExperienceCard({load, period, description} : ExperienceCardProps){
     return(
-        <div className="w-full h-12 bg-transparent backdrop-blur-xl">
+        <div className="w-full min-h-24 px-4 bg-transparent backdrop-blur-xl rounded-xl flex flex-col">
             <header className="flex justify-between">
                 <h1 className="text-pink">{load}</h1>
                 <span className="text-blue_twitter">{period}</span>

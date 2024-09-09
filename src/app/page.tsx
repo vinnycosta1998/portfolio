@@ -16,6 +16,10 @@ import { Great_Vibes, Poppins } from "next/font/google"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Header } from "@/components/Header";
+import { api } from "./lib/axios";
+
+import { toast } from 'sonner'
+import { MeCard } from "@/components/MeCard";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -61,6 +65,22 @@ export default function Home() {
     }
   }
 
+  async function handleSendEmail(data:FormSchemaData){
+    if(data.name.length === 0 || data.subject.length === 0 || data.name.length === 0){
+      alert("Preencha com as informacoes abaixo")
+    }
+    try{
+      const response = await api.post('/', {
+        name: data.name,
+        subject: data.subject,
+        email: data.email
+      })
+      toast.success("E-mail enviado com sucesso")
+    }catch(err){
+      toast.error("Erro ao enviar e-mail")
+    }
+  }
+
 
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -77,10 +97,10 @@ export default function Home() {
       </div>
 
       <div className="w-[40rem] mt-12" ref={meRef}>
-      <h1 className="font-bold text-2xl text-yellow my-2">Sobre Mim</h1>
-        <p className="text-white">
-          Apaixonado por tecnologia, tenho como principal objetivo solucionar problemas atraves de programacao e gerar impacto na vida das pessoas.
-        </p>
+        <h1 className="font-bold text-2xl text-yellow my-2">Sobre Mim</h1>
+        <MeCard
+          description="Apaixonado por tecnologia tenho como principal objetivo resolver problemas e agregar valor através da programaçao"
+        />
       </div>
 
       <div className="w-[40rem] mt-12" ref={experienceRef}>
@@ -100,7 +120,6 @@ export default function Home() {
               techs.map((tech) => {
                 return(
                   <TechCard
-                    id={tech.id}
                     title={tech.title}
                     logo={tech.logo}
                     key={tech.id}
@@ -119,7 +138,6 @@ export default function Home() {
             projects.map((project) => {
               return(
                 <ProjectCard
-                  id={project.id}
                   title={project.title}
                   description={project.description}
                   techsUtilized={project.techsUtilized}
@@ -131,27 +149,34 @@ export default function Home() {
         </div>
       </div>
 
-      <form className="w-[40rem] mt-12 flex flex-col gap-8" ref={contactRef}>
+      <form className="w-[40rem] mt-12 flex flex-col gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
         <h1 className="font-bold text-2xl text-yellow my-2">Entre em contato comigo</h1>
         <input 
           type="text"
           placeholder="Digite o seu nome"
-          className="w-full h-10 border-[1px] border-x-neutral-400   rounded-lg outline-none text-white px-2"
+          className="w-full h-10 border-[1px] border-x-neutral-400 text-black rounded-lg outline-none px-2"
+          {...register('name')}
         />
         <input  
           type="text"
           placeholder="Digite o assunto"
-          className="w-full h-10 border-[1px] border-x-neutral-400   rounded-lg outline-none text-white px-2"
+          className="w-full h-10 border-[1px] border-x-neutral-400 text-black  rounded-lg outline-nonepx-2"
+          {...register('subject')}
         />
         <textarea 
-          name="" 
           id=""
           rows={10}
           placeholder="Digite o email"
-          className="w-full border-[1px] border-x-neutral-400   rounded-lg outline-none text-white px-2"
+          className="w-full border-[1px] border-x-neutral-400 text-black  rounded-lg outline-none px-2"
+          {...register('email')}
         >
         </textarea>
-        <button className="w-full h-8 bg-pink text-yellow outline-none rounded-lg">Enviar email</button>
+        <button 
+          className="w-full h-8 bg-pink text-yellow outline-none rounded-lg mb-16"
+          type="submit"
+        >
+          Enviar email
+        </button>
       </form>
     </div>
   );

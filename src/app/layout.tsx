@@ -1,7 +1,8 @@
+/* eslint-disable react/react-in-jsx-scope */
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Header } from "@/components/Header";
+import { Toaster } from 'sonner'
 
 
 const geistSans = localFont({
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={` *:${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster richColors/>
       </body>
     </html>
   );
