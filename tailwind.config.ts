@@ -21,6 +21,13 @@ const config: Config = {
         yellow: '#F1FA8C',
         white: '#FFF'
       },
+      screens:{
+        'xlg': '1700px',
+        'lg': '1440px',
+        'md': '1150px',
+        'sm': '680px',
+        'xsm': '200px'
+      }
     },
   },
   plugins: [],

@@ -4,15 +4,14 @@ interface ProjectsProps {
     description: string
     techsUtilized: string
   }
-  ;[]
   
   export const projects: ProjectsProps[] = [
     {
       id: '1',
-      title: 'React Movies',
+      title: 'CPF Validator',
       description:
-        'Aplicacão frontend que exibe informações de filmes que estão em cartaz no cinema',
+        'Interface Grafica que abre um arquivo Excel percorre uma coluna de CPF e valida se os mesmos são verdadeiros ou falsos',
       techsUtilized:
-        'NextJS | Axios | React Hook Form | Zod | TailwindCSS | Typescript',
+        'Python | tkinter | openpyxl',
     },
 ]

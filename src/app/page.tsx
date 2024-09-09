@@ -96,14 +96,14 @@ export default function Home() {
         <span className={`${poppins.className} text-pink`}>Full Stack Developer</span>
       </div>
 
-      <div className="w-[40rem] mt-12" ref={meRef}>
+      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={meRef}>
         <h1 className="font-bold text-2xl text-yellow my-2">Sobre Mim</h1>
         <MeCard
           description="Apaixonado por tecnologia tenho como principal objetivo resolver problemas e agregar valor através da programaçao"
         />
       </div>
 
-      <div className="w-[40rem] mt-12" ref={experienceRef}>
+      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={experienceRef}>
         <h1 className="font-bold text-2xl text-yellow my-2">Experiencia</h1>
         <ExperienceCard
             load="Mobilize Financial Services"
@@ -112,10 +112,10 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-[40rem] mt-12">
+      <div className="w-[40rem] mt-12 flex flex-col items-center">
         <h1 className="font-bold text-2xl text-pink my-2">Tecnologias</h1>
         <div>
-          <div className="grid grid-cols-4 gap-12">
+          <div className="grid grid-cols-4 gap-12 md:grid-cols-3 md:gap-6 sm:grid-cols-3 sm:gap-6 xsm:grid-cols-2">
             {
               techs.map((tech) => {
                 return(
@@ -131,13 +131,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-[40rem] mt-12" ref={projectRef}>
+      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={projectRef}>
         <h1 className="font-bold text-2xl text-purple my-2">Meus projetos</h1>
         <div className="flex flex-col">
           {
             projects.map((project) => {
               return(
                 <ProjectCard
+                  id={project.id}
                   title={project.title}
                   description={project.description}
                   techsUtilized={project.techsUtilized}
@@ -149,30 +150,30 @@ export default function Home() {
         </div>
       </div>
 
-      <form className="w-[40rem] mt-12 flex flex-col gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
+      <form className="w-[40rem] mt-12 flex flex-col items-center gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
         <h1 className="font-bold text-2xl text-yellow my-2">Entre em contato comigo</h1>
         <input 
           type="text"
           placeholder="Digite o seu nome"
-          className="w-full h-10 border-[1px] border-x-neutral-400 text-black rounded-lg outline-none px-2"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl border-x-neutral-400 text-white rounded-lg outline-none px-2"
           {...register('name')}
         />
         <input  
           type="text"
           placeholder="Digite o assunto"
-          className="w-full h-10 border-[1px] border-x-neutral-400 text-black  rounded-lg outline-nonepx-2"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl text-white  rounded-lg outline-none px-2"
           {...register('subject')}
         />
         <textarea 
           id=""
           rows={10}
           placeholder="Digite o email"
-          className="w-full border-[1px] border-x-neutral-400 text-black  rounded-lg outline-none px-2"
+          className="w-full border-[1px]  bg-transparent backdrop-blur-xl border-x-neutral-400 text-white  rounded-lg outline-none px-2"
           {...register('email')}
         >
         </textarea>
         <button 
-          className="w-full h-8 bg-pink text-yellow outline-none rounded-lg mb-16"
+          className="w-full h-12 bg-pink font-bold text-yellow outline-none rounded-lg mb-16"
           type="submit"
         >
           Enviar email

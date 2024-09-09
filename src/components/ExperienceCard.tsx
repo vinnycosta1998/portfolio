@@ -8,7 +8,7 @@ interface ExperienceCardProps{
 
 export function ExperienceCard({load, period, description} : ExperienceCardProps){
     return(
-        <div className="w-full min-h-24 px-4 bg-transparent backdrop-blur-xl rounded-xl flex flex-col">
+        <div className="w-full min-h-24 px-4 bg-transparent backdrop-blur-xl rounded-xl flex flex-col xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[500px]">
             <header className="flex justify-between">
                 <h1 className="text-pink">{load}</h1>
                 <span className="text-blue_twitter">{period}</span>

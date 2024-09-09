@@ -6,7 +6,13 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'github.com',
             port: '',
-            pathname: '/vinnycosta9898.png',
+            pathname: '/vinnycosta1998.png',
+          },
+          {
+            protocol: 'https',
+            hostname: 'github.com',
+            port: '',
+            pathname: '/vinnycosta1998/**/blob/main/.github/**',
           },
         ],
       },
@@ -15,3 +21,4 @@ const nextConfig = {
 export default nextConfig;
 
 // https://github.com//vinnycosta9898.png
+// https://github.com/vinnycosta1998/cpf_validator/blob/main/.github/photo1.png?raw=true
