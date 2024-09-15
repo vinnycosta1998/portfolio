@@ -19,6 +19,7 @@ import { api } from "./lib/axios";
 import { toast } from 'sonner'
 import { MeCard } from "@/components/MeCard";
 import { motion } from "framer-motion";
+import { p } from "framer-motion/client";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -104,25 +105,25 @@ export default function Home() {
       </motion.div>
 
       <div className="mt-12 flex flex-col items-center justify-center">
-        <h1 className={`text-6xl text-yellow ${greatVibes.className} xlg:text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl`}>Vinicius Costa de Almeida</h1>
+        <h1 className={`text-6xl text-yellow ${greatVibes.className} xlg:text-6xl lg:text-5xl md:text-4xl sm:text-4xl xsm:text-4xl`}>Vinicius Costa de Almeida</h1>
         <span className={`${poppins.className} text-pink`}>Full Stack Developer</span>
       </div>
       
-      <div className="w-[50rem] flex flex-start px-2 mt-12 xlg:flex-start lg:flex-start md:items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 xlg:flex-start lg:flex-start md:items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]">
         <h1 className="font-bold text-2xl text-blue_twitter my-2">Sobre Mim</h1>
       </div>
 
-      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={meRef}>
+      <div className="w-[50rem] mt-2 flex flex-col items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]" ref={meRef}>
         <MeCard
           description="Apaixonado por tecnologia tenho como principal objetivo resolver problemas e agregar valor através da programaçao"
         />
       </div>
 
-      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]">
         <h1 className="font-bold text-2xl text-yellow my-2">Experiencia</h1>
       </div>
 
-      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={experienceRef}>
+      <div className="w-[50rem] mt-2 flex flex-col items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]" ref={experienceRef}>
         <ExperienceCard
             load="Mobilize Financial Services"
             period="03/04/2023 01/11/2023"
@@ -130,13 +131,13 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]">
         <h1 className="font-bold text-2xl text-pink my-2">Tecnologias</h1>
       </div>
       
       <div className="w-[50rem] mt-2 flex flex-col items-center">
         <div className="flex flex-col items-center">
-          <div className="grid grid-cols-4 gap-18 md:grid-cols-4 md:gap-6 sm:grid-cols-3 sm:gap-6 xsm:grid-cols-1 xs">
+          <div className="grid grid-cols-4 gap-18 md:grid-cols-4 md:gap-6 sm:grid-cols-3 sm:gap-6 xsm:grid-cols-1">
             {
               techs.map((tech) => {
                 return(
@@ -152,11 +153,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]">
         <h1 className="font-bold text-2xl text-purple my-2">Meus projetos</h1>
       </div>
 
-      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={projectRef}>
+      <div className="w-[50rem] mt-2 flex flex-col items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]" ref={projectRef}>
         <div className="flex flex-col gap-4">
           {
             projects.map((project) => {
@@ -174,33 +175,38 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]">
         <h1 className="font-bold text-2xl text-yellow my-2">Entre em contato comigo</h1>
       </div>
         
-      <form className="w-[50rem] mt-2 flex flex-col items-center gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
+      <form className="w-[50rem] mt-2 flex flex-col items-center gap-8 xlg:w-[50rem] lg:w-[40rem] md:w-[40rem] sm:w-[30rem] xsm:w-[20rem]" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
         <input 
           type="text"
           placeholder="Digite o seu nome"
-          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl border-zinc-700  text-white rounded-lg outline-none px-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl border-zinc-700  text-white rounded-lg outline-none px-2"
           {...register('name')}
         />
+        {errors.name?.message && <span className=" text-md text-red">{errors.name.message}</span>}
         <input  
           type="text"
           placeholder="Digite o assunto"
-          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl text-white border-zinc-700  rounded-lg outline-none px-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl text-white border-zinc-700  rounded-lg outline-none px-2"
           {...register('subject')}
         />
+        {errors.subject?.message && <span className=" text-md text-red">{errors.subject.message}</span>}
+
         <textarea 
           id=""
           rows={10}
           placeholder="Digite o email"
-          className="w-full border-[1px]  bg-transparent backdrop-blur-xl border-zinc-700 text-white  rounded-lg outline-none px-2 py-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px] "
+          className="w-full border-[1px]  bg-transparent backdrop-blur-xl border-zinc-700 text-white  rounded-lg outline-none px-2 py-2 "
           {...register('email')}
         >
         </textarea>
+        {errors.email?.message && <span className=" text-md text-red">{errors.email.message}</span>}
+        
         <button 
-          className="w-full h-12 bg-pink font-bold text-yellow text-xl outline-none rounded-lg mb-16 hover:scale-105 cursor-pointer transition-all xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
+          className="w-full h-12 bg-pink font-bold text-yellow text-xl outline-none rounded-lg mb-16 hover:scale-105 cursor-pointer transition-all"
           type="submit"
         >
           Enviar email
