@@ -1,4 +1,6 @@
-export const matchProjectbyId = (id: string) => {
+import projectImg from '../assets/spotify-ui-clone.png'
+
+export const matchProjectbyId  = (id: string) => {
     switch(id){
         case '1':
             return {
@@ -14,12 +16,12 @@ export const matchProjectbyId = (id: string) => {
         case '2':
             return{
                 id: '2',
-                title: 'Manager Store',
-                description: 'Interface grafica construida com Python que cadastra clientes de uma loja e prove dashboards para visualizacao dos dados',
-                techsUtilized: 'Python | CustomTkinter | Sqlite',
-                linkRepo: 'https://github.com/vinnycosta1998/manager-store',
+                title: 'Spotify Clone UI',
+                description: 'Clone da interface do Spotify',
+                techsUtilized: 'NextJS | TailwindCSS | Typescript',
+                linkRepo: 'https://github.com/vinnycosta1998/spotify-ui-clone',
                 projectImages: [
-                    'https://raw.githubusercontent.com/vinnycosta9898/manager-store/master/.github/photo1.png',
+                    projectImg,
                 ],
             }
     }

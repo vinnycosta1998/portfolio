@@ -6,3 +6,18 @@ body{
   background-color: #170B2A;
 }
 
+::-webkit-scrollbar{
+  width: 1rem;
+  background-color: #ffffff20;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgba(0, 0, 0, 0.2 );
+  border-radius: 8px;
+}
+
+
+
+

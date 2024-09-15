@@ -8,7 +8,7 @@
 
     export function TechCard({ logo, title } : TechCardProps){
         return(
-            <div className="w-32 h-32 bg-transparent backdrop-blur-xl rounded-lg flex flex-col items-center justify-center">
+            <div className="w-48 h-48 bg-transparent backdrop-blur-xl rounded-lg flex flex-col items-center justify-center hover:scale-105 cursor-pointer transition-all">
                 <Image
                     src={logo}
                     alt={`logo ${title}`} 
@@ -17,7 +17,7 @@
                     quality={100}
                     priority
                 />
-                <h1 className="text-white">{title}</h1>
+                <strong className="text-xl text-white mt-2">{title}</strong>
             </div>
         )
     }

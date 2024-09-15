@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
 "use client"
 
 import { useRef } from "react";
@@ -20,6 +18,7 @@ import { api } from "./lib/axios";
 
 import { toast } from 'sonner'
 import { MeCard } from "@/components/MeCard";
+import { matchProjectbyId } from "@/utils/matchProjectById";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -66,8 +65,8 @@ export default function Home() {
   }
 
   async function handleSendEmail(data:FormSchemaData){
-    if(data.name.length === 0 || data.subject.length === 0 || data.name.length === 0){
-      alert("Preencha com as informacoes abaixo")
+    if(!data.name|| !data.subject|| !data.name){
+      toast.warning("Preencha com as informacoes abaixo")
     }
     try{
       const response = await api.post('/', {
@@ -83,7 +82,7 @@ export default function Home() {
 
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="w-full h-full flex flex-col items-center justify-center">
       <Header
         handleClick={handleClick}
       />
@@ -92,19 +91,25 @@ export default function Home() {
       </div>
 
       <div className="mt-12 flex flex-col items-center justify-center">
-        <h1 className={`text-5xl text-yellow ${greatVibes.className}`}>Vinicius Costa de Almeida</h1>
+        <h1 className={`text-6xl text-yellow ${greatVibes.className} xlg:text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl`}>Vinicius Costa de Almeida</h1>
         <span className={`${poppins.className} text-pink`}>Full Stack Developer</span>
       </div>
+      
+      <div className="w-[50rem] flex flex-start px-2 mt-12 xlg:flex-start lg:flex-start md:items-center">
+        <h1 className="font-bold text-2xl text-blue_twitter my-2">Sobre Mim</h1>
+      </div>
 
-      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={meRef}>
-        <h1 className="font-bold text-2xl text-yellow my-2">Sobre Mim</h1>
+      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={meRef}>
         <MeCard
           description="Apaixonado por tecnologia tenho como principal objetivo resolver problemas e agregar valor através da programaçao"
         />
       </div>
 
-      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={experienceRef}>
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
         <h1 className="font-bold text-2xl text-yellow my-2">Experiencia</h1>
+      </div>
+
+      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={experienceRef}>
         <ExperienceCard
             load="Mobilize Financial Services"
             period="03/04/2023 01/11/2023"
@@ -112,10 +117,13 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-[40rem] mt-12 flex flex-col items-center">
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
         <h1 className="font-bold text-2xl text-pink my-2">Tecnologias</h1>
-        <div>
-          <div className="grid grid-cols-4 gap-12 md:grid-cols-3 md:gap-6 sm:grid-cols-3 sm:gap-6 xsm:grid-cols-2">
+      </div>
+      
+      <div className="w-[50rem] mt-2 flex flex-col items-center">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-4 gap-18 md:grid-cols-4 md:gap-6 sm:grid-cols-3 sm:gap-6 xsm:grid-cols-1 xs">
             {
               techs.map((tech) => {
                 return(
@@ -131,9 +139,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-[40rem] mt-12 flex flex-col items-center" ref={projectRef}>
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
         <h1 className="font-bold text-2xl text-purple my-2">Meus projetos</h1>
-        <div className="flex flex-col">
+      </div>
+
+      <div className="w-[50rem] mt-2 flex flex-col items-center" ref={projectRef}>
+        <div className="flex flex-col gap-4">
           {
             projects.map((project) => {
               return(
@@ -150,30 +161,33 @@ export default function Home() {
         </div>
       </div>
 
-      <form className="w-[40rem] mt-12 flex flex-col items-center gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
+      <div className="w-[50rem] flex flex-start px-2 mt-12 md:items-center">
         <h1 className="font-bold text-2xl text-yellow my-2">Entre em contato comigo</h1>
+      </div>
+        
+      <form className="w-[50rem] mt-2 flex flex-col items-center gap-8" ref={contactRef} onSubmit={handleSubmit(handleSendEmail)}>
         <input 
           type="text"
           placeholder="Digite o seu nome"
-          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl border-x-neutral-400 text-white rounded-lg outline-none px-2"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl border-zinc-700  text-white rounded-lg outline-none px-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
           {...register('name')}
         />
         <input  
           type="text"
           placeholder="Digite o assunto"
-          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl text-white  rounded-lg outline-none px-2"
+          className="w-full h-10 border-[1px] bg-transparent backdrop-blur-xl text-white border-zinc-700  rounded-lg outline-none px-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
           {...register('subject')}
         />
         <textarea 
           id=""
           rows={10}
           placeholder="Digite o email"
-          className="w-full border-[1px]  bg-transparent backdrop-blur-xl border-x-neutral-400 text-white  rounded-lg outline-none px-2"
+          className="w-full border-[1px]  bg-transparent backdrop-blur-xl border-zinc-700 text-white  rounded-lg outline-none px-2 py-2 xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px] "
           {...register('email')}
         >
         </textarea>
         <button 
-          className="w-full h-12 bg-pink font-bold text-yellow outline-none rounded-lg mb-16"
+          className="w-full h-12 bg-pink font-bold text-yellow text-xl outline-none rounded-lg mb-16 hover:scale-105 cursor-pointer transition-all xlg:w-full lg:w-full md:w-full sm:w-[500px] xsm:w-[400px]"
           type="submit"
         >
           Enviar email

@@ -12,13 +12,17 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'github.com',
             port: '',
-            pathname: '/vinnycosta1998/**/blob/main/.github/**',
+            pathname: '/vinnycosta1998/cpf_validator/blob/main/.github/**',
+          },
+          {
+            protocol: 'https',
+            hostname: 'github.com',
+            port: '',
+            pathname: '/vinnycosta1998/spotify-ui-clone/blob/main/.github/**',
           },
         ],
       },
 };
 
 export default nextConfig;
-
-// https://github.com//vinnycosta9898.png
-// https://github.com/vinnycosta1998/cpf_validator/blob/main/.github/photo1.png?raw=true
+// https://raw.githubusercontent.com/vinnycosta9898/spotify-ui-clone/master/.github/photo1.png

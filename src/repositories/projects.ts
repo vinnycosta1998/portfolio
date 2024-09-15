@@ -14,4 +14,12 @@ interface ProjectsProps {
       techsUtilized:
         'Python | tkinter | openpyxl',
     },
+    {
+      id: '2',
+      title: 'Spotify UI Clone',
+      description:
+        'Clone da Interface do Spotify',
+      techsUtilized:
+        'NextJS | TailwindCSS | Typescript',
+    },
 ]
