@@ -18,7 +18,7 @@ import { api } from "./lib/axios";
 
 import { toast } from 'sonner'
 import { MeCard } from "@/components/MeCard";
-import { matchProjectbyId } from "@/utils/matchProjectById";
+import { motion } from "framer-motion";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -86,9 +86,22 @@ export default function Home() {
       <Header
         handleClick={handleClick}
       />
-      <div className="mt-12">
+      <motion.div className="mt-12"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          ease: [0, 0.71, 0.2, 1.01],
+          scale: {
+            type: "spring",
+            damping: 5,
+            stiffness: 100,
+            restDelta: 0.001
+          }
+        }} 
+      >
         <Avatar/>
-      </div>
+      </motion.div>
 
       <div className="mt-12 flex flex-col items-center justify-center">
         <h1 className={`text-6xl text-yellow ${greatVibes.className} xlg:text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl`}>Vinicius Costa de Almeida</h1>

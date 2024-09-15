@@ -1,5 +1,4 @@
 /* eslint-disable react/react-in-jsx-scope */
-
 import Image from "next/image";
 
 export function Avatar(){
