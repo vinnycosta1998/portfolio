@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:3000/api/send'
+const baseURL = 'http://viniciuscostadealmeida98.vercel.app/api/send'
 
 export const api = axios.create({
     baseURL,
