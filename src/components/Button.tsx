@@ -27,7 +27,7 @@ export function Button({ page, moviment } : ButtonProps){
     return(
         <Link 
             href={`/project/${futurePage}`} 
-            className={`w-[10rem] h-screen absolute ${moviment === 'left' ? "left-0" : "right-0"} top-0 rounded-md bg-transparent backdrop-blur-xl flex items-center justify-center`} 
+            className={`w-[10rem] h-screen absolute ${moviment === 'left' ? "left-0" : "right-0"} top-0 rounded-md bg-transparent backdrop-blur-xl flex items-center justify-center xlg:w-[10rem] lg:w-[10rem] md:w-[10rem] sm:w-[6rem] xsm:w-[6rem]`} 
             onClick={() => handlePlusOrMinusPage}
         >
             {
